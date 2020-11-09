@@ -1,0 +1,340 @@
+<!-- {% load static %} -->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>I-Gene</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/production/main.css' %}">
+
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- <link id="avast_os_ext_custom_font"
+        href="chrome-extension://eofcbnmajmjmplflapaojjnihcjkigck/common/ui/fonts/fonts.css" rel="stylesheet"
+        type="text/css"> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/main.js' %}"> </script>
+
+    <script type="text/javascript" src="main.js"> </script> -->
+</head>
+
+<body>
+    <nav class="nav-first navbar navbar-expand-sm navbar-fixed navbar-dark">
+        <a class="navbar-brand" href="#">I Gene</a>
+
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="nav-item ">
+                    <a class="nav-link " href="#mytasks">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Inbox">Inbox</a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item ">
+                    <a class="nav-link" href="logout">Log Out </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+    <div class="nav-sec navbar-dark shadow-sm">
+        <nav class="nav nav-underline">
+            <a class="nav-link active" href="#tab1" data-toggle="tab">Projet-Details</a>
+            <a class="nav-link " href="#tab2" data-toggle="tab">Sequeneces</a>
+            <a class="nav-link " href="#tab3" data-toggle="tab">Shots</a>
+            <a class="nav-link " href="#tab4" data-toggle="tab">Tasks</a>
+        </nav>
+    </div>
+
+    <!-- <nav class="nav nav-pills nav-justified">
+        <a class="nav-item nav-link active" href="#">Active</a>
+        <a class="nav-item nav-link" href="#">Link</a>
+        <a class="nav-item nav-link" href="#">Link</a>
+        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </nav> -->
+
+    <main role="main" class="mainpanel">
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+                <div class="page_title">
+                    <div class="pt_container">
+                        <div class=pt_row>
+                            <div class=pt_title>
+                                <span>Overview</span>
+                            </div>
+                            <div class="pt_act"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row'
+                    style="width:100%;margin-left:0px;padding:8px;margin-top:8px;border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div class='col-3'>
+                        <div class="image-upload">
+                            <div class="title">
+                                <div class="row inner-row justify-content-between align-items-center">
+                                    <div class="col-8 ">
+                                        <span>Image Upload</span>
+                                    </div>
+                                    <div class="col-2 align-items-center">
+                                        <span><i class="fas fa-sync-alt"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="image-container col-container">
+                                <div class="no-content no-image">
+                                    <span> Upload Thumbnail</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class='col-3'>
+                        <div class="pro_seq">
+                            <div class="title">
+                                <div class="row inner-row justify-content-between align-items-center">
+                                    <div class="col-8">
+                                        <span>Sequences</span>
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="seq-container col-container">
+                                <div class="no-content">
+                                    <span> No sequences</span>
+                                </div>
+                                <table class="pro-seq-table">
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-3'>
+                        <div class="shot_status">
+                            <div class="title">
+                                <div class="row inner-row justify-content-between">
+                                    <div class="col-8">
+                                        <span>Shots</span>
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shot-container col-container">
+                                <div class="no-shot no-content">
+                                    <span>No matching Shots to graph</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-3'>
+                        <div class="pg_crew">
+                            <div class="title">
+                                <div class="row inner-row justify-content-between">
+                                    <div class="col-8">
+                                        <span>Project Crew</span>
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="crew-container col-container">
+                                <div class="no-crew no-content">
+                                    <span>No crew added</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="tab-pane" id="tab2">
+                <div class="page_title">
+                    <div class="pt_container">
+                        <div class=pt_row>
+                            <div class=pt_title>
+                                <span>Sequences</span>
+                            </div>
+                            <div class="pt_act"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contents">
+                    <div class="ele-act">
+                        <button class="add-ele">Add Sequence</button>
+                    </div>
+                    <div class="no-content items-container">
+                        <span>Once you create some Sequences, this is where you can see them.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab3">
+                <div class="page_title">
+                    <div class="pt_container">
+                        <div class=pt_row>
+                            <div class=pt_title>
+                                <span>Shots</span>
+                            </div>
+                            <div class="pt_act"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contents">
+                    <div class="ele-act">
+                        <button class="add-ele">Add Shots</button>
+                    </div>
+                    <div class="no-content items-container">
+                        <span>Once you create some Shots, this is where you can see them.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab4">
+                <div class="page_title">
+                    <div class="pt_container">
+                        <div class=pt_row>
+                            <div class=pt_title>
+                                <span>Tasks</span>
+                            </div>
+                            <div class="pt_act"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contents">
+                    <div class="ele-act">
+                        <button class="add-ele">Add Tasks</button>
+                    </div>
+                    <div class="no-content items-container">
+                        <span>Once you create some Tasks, this is where you can see them.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete the user?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" id="deletebutton" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form id="edituserdetails">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="Igene_Id" class="col-form-label">Igene_Id:</label>
+                                    <input type="text" name="igene_id" class="form-control" id="Igene_Id">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username" class="col-form-label">Username:</label>
+                                    <input type="text" class="form-control" name="username" id="username"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="col-form-label">Email:</label>
+                                    <input type="email" class="form-control" name="email" id="email"></textarea>
+                                </div>
+
+                            </div>
+                            <div class=col-6>
+                                <div class="form-group">
+                                    <label for="designation" class="col-form-label">Designation:</label>
+                                    <input type="text" name="designation" class="form-control" id="designation">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dept" class="col-form-label">Dept:</label>
+                                    <input type="text" class="form-control" name="dept" id="dept"></textarea>
+                                </div>
+                                <div class="form-group mb-5">
+                                    <label for="doj" class="col-form-label">DoJ (YYYY-MM-DD) :</label>
+                                    <input type="text" name="doj" class="form-control" id="doj">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-5">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">UserType</label>
+                                </div>
+                                <select name="usertype" class="custom-select" id="inputGroupSelect01">
+                                    <option selected>Choose...</option>
+                                    <option value="PRODUCTION">production</option>
+                                    <option value="PRO-SUP">project supervisor</option>
+                                    <option value="PRO-TL">project lead</option>
+                                    <option value="PRO-CO">project co-ordinator</option>
+                                    <option value="ARTIST">artist</option>
+                                    <option value="IT-SUPPORT">it-support</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" id="editUserbutton" class="btn btn-primary">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <meta name="theme-color" content="#563d7c">
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function doajax() {
+            console.log("here");
+            formdata = FormData(document.querySelector("#form_post"));
+            console.log(formdata);
+            return false;
+        }
+
+    </script>
+</head>
+
+<body>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" text="submit" />
+    </form>
+    <!-- <script type="text/javascript">
+        (function () {
+            document.querySelector("#form_post").addEventListener("submit", (e) => {
+                formdata = new FormData(e.target);
+                console.log(formdata);
+            })
+        }());
+    </script> -->
+</body>
+
+</html>

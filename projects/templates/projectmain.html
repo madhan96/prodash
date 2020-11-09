@@ -1,0 +1,153 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>I-Gene</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/mainproject.css' %}">
+    <link rel='stylesheet' href=https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css>
+
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets/css/tabulator.min.css' %}">
+
+    <link href="{% static 'assets/css/tabulator_midnight.min.css' %}" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet">
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+    <script type="text/javascript" src="{% static 'assets/js/tabulator.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'utilities/js/requestservices.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/projectservices.js' %}"></script>
+
+
+
+</head>
+
+<body>
+    <nav class="nav-first navbar navbar-expand-sm navbar-fixed navbar-dark">
+        <a class="navbar-brand" href="#">I Gene</a>
+
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="nav-item active">
+                    <a class="nav-link " href="mytasks">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Inbox">Inbox</a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item ">
+                    <a class="nav-link" href="logout">Log Out </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+    <main role="main" class="mainpanel">
+        <div class=page-container>
+            <div class="page_title">
+                <div class="pt_container">
+                    <div class=pt_row>
+                        <div class=pt_title>
+                            <span>Projects</span>
+                        </div>
+                        <div class="pt_act"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="contents">
+                <div class="ele-act">
+                    <button class="add-ele">Add Projects</button>
+                    <button class="add-ele" data-toggle="modal" data-target="#bulkmodal">Bulk
+                        Import</button>
+                    <button class="add-ele" id="add-row">Add Row</button>
+                </div>
+                <div class="table-content items-container">
+                    <table id="project-table"></table>
+
+                </div>
+                <!-- <div class="no-content items-container">
+                <span>Once you create some Shots, this is where you can see them.</span>
+            </div> -->
+            </div>
+        </div>
+    </main>
+    <div class="modal fade" id="confirm-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Dialog</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body confirm-dlg-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="rejectbutton" data-dismiss="modal">cancel</button>
+                    <button type="button" id="confirmbutton" class="btn btn-danger">ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="bulkmodal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable ">
+            <div class="modal-content bg-bulk">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bulk Import</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body confirm-dlg-body bg-bulk-body">
+                    <form class="box" method="post" enctype="multipart/form-data" style="text-align: center;">
+                        <div class="box__input">
+                            <input class="box__file inputfile" type="file" name="file" id="file" />
+                            <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it
+                                    here</span>.</label>
+                            <button class="box__button" type="submit">Upload</button>
+                        </div>
+                        <div class="box__uploading">Uploading…</div>
+                        <div class="box__success">Done!</div>
+                        <div class="box__error">Error! <span></span>.</div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="rejectbutton" data-dismiss="modal">cancel</button>
+                    <button type="button" id="deletebutton" class="btn btn-danger">ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <meta name="theme-color" content="#563d7c">
+    <script type="text/javascript" src="{% static 'js/projecttable.js' %}"></script>
+</body>
+
+</html>
